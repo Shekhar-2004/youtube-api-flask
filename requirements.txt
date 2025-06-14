@@ -1,2 +1,5 @@
-flask
-pytube
+Flask==2.3.3
+pytube==15.0.0
+Flask-Limiter==3.5.0
+redis==5.0.1
+Werkzeug==2.3.7
