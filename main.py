@@ -232,11 +232,10 @@ def cleanup_temp_files(error):
     pass
 
 if __name__ == '__main__':
-    # Production-ready configuration
     debug_mode = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
-    port = int(os.getenv('PORT', 5000))
-    host = os.getenv('HOST', '127.0.0.1')  # Changed from 0.0.0.0 for security
-    
+    port = int(os.getenv('PORT', 10000))  # Render sets PORT env var
+    host = '0.0.0.0'  # ✅ this is required for Render
+
     if debug_mode:
         logger.warning("Running in debug mode - not recommended for production!")
     
