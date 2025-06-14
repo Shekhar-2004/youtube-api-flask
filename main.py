@@ -5,6 +5,7 @@ from urllib.parse import urlparse
 from flask import Flask, request, jsonify, send_file
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from flask_cors import CORS
 from pytube import YouTube
 from pytube.exceptions import VideoUnavailable, RegexMatchError
 from werkzeug.exceptions import BadRequest
@@ -18,6 +19,14 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
+
+# CORS configuration - allows requests from your app
+CORS(app, origins=[
+    "http://localhost:3000",  # React development server
+    "http://localhost:8080",  # Vue development server
+    "https://yourdomain.com", # Your production domain
+    # Add your app's domain here
+])
 
 # Security configuration
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max request size
