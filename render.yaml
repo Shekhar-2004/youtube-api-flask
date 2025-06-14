@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: youtube-api
+    env: python
+    buildCommand: ""
+    startCommand: "python main.py"
